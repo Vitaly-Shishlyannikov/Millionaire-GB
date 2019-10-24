@@ -140,6 +140,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="ButtonAnswer1" destination="Zdf-TO-9KQ" id="0AK-5h-RGf"/>
+                        <outlet property="ButtonAnswer2" destination="veC-KF-EM6" id="ZwA-l0-9pW"/>
+                        <outlet property="ButtonAnswer3" destination="rKY-GU-CZ7" id="e5a-O6-rPt"/>
+                        <outlet property="ButtonAnswer4" destination="j7M-fj-ebQ" id="8kx-li-AJ4"/>
+                        <outlet property="LabelNumberOfQuestion" destination="tVV-eB-Hay" id="dYy-F1-KJu"/>
+                        <outlet property="LabelQuestionText" destination="R3k-po-pCP" id="QUp-Ve-5QA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
