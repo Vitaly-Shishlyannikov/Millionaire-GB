@@ -61,13 +61,21 @@
 				58AA6FB4236083BF0079E518 /* AppDelegate.swift */,
 				58AA6FB6236083BF0079E518 /* GameViewController.swift */,
 				58AA6FC6236094770079E518 /* Data.swift */,
-				58AA6FC8236095040079E518 /* Question.swift */,
+				58AA6FCA236096F40079E518 /* Model */,
 				58AA6FB8236083C00079E518 /* Main.storyboard */,
 				58AA6FBB236083C20079E518 /* Assets.xcassets */,
 				58AA6FBD236083C20079E518 /* LaunchScreen.storyboard */,
 				58AA6FC0236083C20079E518 /* Info.plist */,
 			);
 			path = "Millionaire-GB";
+			sourceTree = "<group>";
+		};
+		58AA6FCA236096F40079E518 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58AA6FC8236095040079E518 /* Question.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

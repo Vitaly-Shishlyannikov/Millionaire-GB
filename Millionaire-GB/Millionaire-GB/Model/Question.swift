@@ -9,11 +9,12 @@
 import Foundation
 
 struct Question {
-    let answer1 : String
-    let answer2 : String
-    let answer3 : String
-    let answer4 : String
-    let correctAnswer : String
+    let question: String
+    let answer1: String
+    let answer2: String
+    let answer3: String
+    let answer4: String
+    let correctAnswer: String
     let helpOfFriend: String
     let helpOfAudience: String
 }
