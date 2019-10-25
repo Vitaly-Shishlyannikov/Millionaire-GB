@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="Egv-16-m1B">
             <objects>
-                <viewController id="IOB-AF-eLg" sceneMemberID="viewController">
+                <viewController id="IOB-AF-eLg" customClass="MainMenuViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIr-B2-lBI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,6 +50,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Zn-rQ-7QX"/>
                     </view>
+                    <connections>
+                        <outlet property="resultsButton" destination="zqT-Bd-vvj" id="H1n-dD-Tos"/>
+                        <outlet property="startGameButton" destination="RJ3-3n-Ci5" id="gh3-An-fqw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99n-Op-q14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,6 +89,9 @@
                                 <state key="normal" title="Button3">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonAnswer3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4wg-oB-hFT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdf-TO-9KQ">
                                 <rect key="frame" x="0.0" y="522" width="180" height="70"/>
@@ -96,6 +103,9 @@
                                 <state key="normal" title="Button1">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonAnswer1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HuU-Xw-t0g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7M-fj-ebQ">
                                 <rect key="frame" x="195" y="597" width="180" height="70"/>
@@ -107,6 +117,9 @@
                                 <state key="normal" title="Button4">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonAnswer4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mjn-V7-PKA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veC-KF-EM6">
                                 <rect key="frame" x="195" y="522" width="180" height="70"/>
@@ -118,6 +131,9 @@
                                 <state key="normal" title="Button2">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ButtonAnswer2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="01G-lE-yUy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.44533965380000001" green="0.95951358050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,9 +163,11 @@
                         <outlet property="ButtonAnswer4" destination="j7M-fj-ebQ" id="8kx-li-AJ4"/>
                         <outlet property="LabelNumberOfQuestion" destination="tVV-eB-Hay" id="dYy-F1-KJu"/>
                         <outlet property="LabelQuestionText" destination="R3k-po-pCP" id="QUp-Ve-5QA"/>
+                        <segue destination="HlH-zy-81M" kind="unwind" identifier="MainMenuSegue" unwindAction="unwindToMainMenuWithSegue:" id="Ny2-67-4vh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="HlH-zy-81M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="480.80000000000001" y="109.29535232383809"/>
         </scene>

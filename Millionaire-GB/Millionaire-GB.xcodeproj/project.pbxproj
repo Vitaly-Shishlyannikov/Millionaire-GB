@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		589F42462362CC9000ECB908 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589F42452362CC9000ECB908 /* Game.swift */; };
+		589F42482362CE8B00ECB908 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589F42472362CE8B00ECB908 /* GameSession.swift */; };
 		58AA6FB5236083BF0079E518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA6FB4236083BF0079E518 /* AppDelegate.swift */; };
 		58AA6FB7236083C00079E518 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA6FB6236083BF0079E518 /* GameViewController.swift */; };
 		58AA6FBA236083C00079E518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58AA6FB8236083C00079E518 /* Main.storyboard */; };
@@ -14,9 +16,12 @@
 		58AA6FBF236083C20079E518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58AA6FBD236083C20079E518 /* LaunchScreen.storyboard */; };
 		58AA6FC7236094770079E518 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA6FC6236094770079E518 /* DataManager.swift */; };
 		58AA6FC9236095050079E518 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA6FC8236095040079E518 /* Question.swift */; };
+		58C6D9F423624A0D0072BCC5 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C6D9F323624A0D0072BCC5 /* MainMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		589F42452362CC9000ECB908 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		589F42472362CE8B00ECB908 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		58AA6FB1236083BF0079E518 /* Millionaire-GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Millionaire-GB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58AA6FB4236083BF0079E518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58AA6FB6236083BF0079E518 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		58AA6FC0236083C20079E518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58AA6FC6236094770079E518 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		58AA6FC8236095040079E518 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		58C6D9F323624A0D0072BCC5 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 			children = (
 				58AA6FB4236083BF0079E518 /* AppDelegate.swift */,
 				58AA6FB6236083BF0079E518 /* GameViewController.swift */,
+				589F42452362CC9000ECB908 /* Game.swift */,
+				589F42472362CE8B00ECB908 /* GameSession.swift */,
+				58C6D9F323624A0D0072BCC5 /* MainMenuViewController.swift */,
 				58AA6FC6236094770079E518 /* DataManager.swift */,
 				58AA6FCA236096F40079E518 /* Model */,
 				58AA6FB8236083C00079E518 /* Main.storyboard */,
@@ -150,7 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				58AA6FB7236083C00079E518 /* GameViewController.swift in Sources */,
+				589F42462362CC9000ECB908 /* Game.swift in Sources */,
+				58C6D9F423624A0D0072BCC5 /* MainMenuViewController.swift in Sources */,
 				58AA6FC9236095050079E518 /* Question.swift in Sources */,
+				589F42482362CE8B00ECB908 /* GameSession.swift in Sources */,
 				58AA6FC7236094770079E518 /* DataManager.swift in Sources */,
 				58AA6FB5236083BF0079E518 /* AppDelegate.swift in Sources */,
 			);
