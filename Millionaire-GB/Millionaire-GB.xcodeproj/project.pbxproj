@@ -49,6 +49,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		583173B12363C4350016CF8E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				58C6D9F323624A0D0072BCC5 /* MainMenuViewController.swift */,
+				58AA6FB6236083BF0079E518 /* GameViewController.swift */,
+				583173AF2363C0CA0016CF8E /* ResultsTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		583173B22363C46B0016CF8E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				58AA6FC6236094770079E518 /* DataManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		58AA6FA8236083BF0079E518 = {
 			isa = PBXGroup;
 			children = (
@@ -68,15 +86,13 @@
 		58AA6FB3236083BF0079E518 /* Millionaire-GB */ = {
 			isa = PBXGroup;
 			children = (
-				58AA6FB4236083BF0079E518 /* AppDelegate.swift */,
-				58AA6FB6236083BF0079E518 /* GameViewController.swift */,
-				589F42452362CC9000ECB908 /* Game.swift */,
-				583173AB2363B5450016CF8E /* ResultsCaretaker.swift */,
-				589F42472362CE8B00ECB908 /* GameSession.swift */,
-				58C6D9F323624A0D0072BCC5 /* MainMenuViewController.swift */,
-				58AA6FC6236094770079E518 /* DataManager.swift */,
-				583173AF2363C0CA0016CF8E /* ResultsTableViewController.swift */,
+				583173B12363C4350016CF8E /* Controllers */,
 				58AA6FCA236096F40079E518 /* Model */,
+				583173B22363C46B0016CF8E /* API */,
+				589F42452362CC9000ECB908 /* Game.swift */,
+				589F42472362CE8B00ECB908 /* GameSession.swift */,
+				583173AB2363B5450016CF8E /* ResultsCaretaker.swift */,
+				58AA6FB4236083BF0079E518 /* AppDelegate.swift */,
 				58AA6FB8236083C00079E518 /* Main.storyboard */,
 				58AA6FBB236083C20079E518 /* Assets.xcassets */,
 				58AA6FBD236083C20079E518 /* LaunchScreen.storyboard */,
