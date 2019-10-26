@@ -25,7 +25,8 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="0l8-5y-EHo"/>
+                                    <action selector="startGameButton:" destination="IOB-AF-eLg" eventType="touchUpInside" id="elq-dA-wlm"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="0l8-5y-EHo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqT-Bd-vvj">
@@ -39,6 +40,9 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="beM-yh-Dsc" kind="show" id="1aJ-yS-nez"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.44533965380000001" green="0.95951358050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,6 +63,43 @@
             </objects>
             <point key="canvasLocation" x="-289" y="109"/>
         </scene>
+        <!--Results Table View Controller-->
+        <scene sceneID="Vhc-n4-f3t">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQF-Td-Xh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RCA-2E-zGY" userLabel="Exit" sceneMemberID="exit"/>
+                <tableViewController id="beM-yh-Dsc" customClass="ResultsTableViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dIz-3L-7YI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4CA-g2-VDF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="ВЫХОД"/>
+                            <connections>
+                                <segue destination="RCA-2E-zGY" kind="unwind" unwindAction="unwindToMainMenuWithSegue:" id="ZT1-G5-3fR"/>
+                            </connections>
+                        </button>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="m4j-K8-EDG">
+                                <rect key="frame" x="0.0" y="58" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m4j-K8-EDG" id="IGH-G6-hRh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="beM-yh-Dsc" id="E8a-u0-riI"/>
+                            <outlet property="delegate" destination="beM-yh-Dsc" id="Tkw-AJ-s77"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="495" y="562"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -73,8 +114,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3k-po-pCP">
-                                <rect key="frame" x="0.0" y="268" width="375" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3k-po-pCP">
+                                <rect key="frame" x="0.0" y="268" width="375" height="119"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -169,7 +210,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="HlH-zy-81M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="480.80000000000001" y="109.29535232383809"/>
+            <point key="canvasLocation" x="496.80000000000001" y="-163.26836581709148"/>
         </scene>
     </scenes>
 </document>

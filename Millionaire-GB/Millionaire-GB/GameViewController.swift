@@ -8,8 +8,11 @@
 
 import UIKit
 
+protocol GameViewControllerDelegate: class {
+    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int, moneyWinned money: String)
+}
+
 class GameViewController: UIViewController {
-    
     
     @IBOutlet weak var LabelNumberOfQuestion: UILabel!
     @IBOutlet weak var LabelQuestionText: UILabel!
@@ -19,7 +22,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var ButtonAnswer4: UIButton!
     
     @IBAction func ButtonAnswer1(_ sender: Any) {
-        
         if ButtonAnswer1.titleLabel?.text == self.currentQuestion?.correctAnswer {
             showWinMessage()
         } else {
@@ -28,34 +30,45 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func ButtonAnswer2(_ sender: Any) {
-        
         if ButtonAnswer2.titleLabel?.text == self.currentQuestion?.correctAnswer {
-            
             showWinMessage()
-            
         } else {
             showLoseMessage()
         }
     }
     @IBAction func ButtonAnswer3(_ sender: Any) {
+        if ButtonAnswer3.titleLabel?.text == self.currentQuestion?.correctAnswer {
+            showWinMessage()
+        } else {
+            showLoseMessage()
+        }
     }
     @IBAction func ButtonAnswer4(_ sender: Any) {
+        if ButtonAnswer4.titleLabel?.text == self.currentQuestion?.correctAnswer {
+            showWinMessage()
+        } else {
+            showLoseMessage()
+        }
     }
+    
+    weak var gameDelegate: GameViewControllerDelegate?
     
     private var indexOfQuestion = 0
     private var currentQuestion: Question?
     private var allQuestions = [Question?]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LabelQuestionText.numberOfLines = 0
         
         allQuestions = DataManager.shared.getAllQuestions()
         
         setQuestion()
-        
+
         showQuestion(question: currentQuestion)
     }
-    
+
     private func incrementIndex() {
         indexOfQuestion += 1
     }
@@ -99,12 +112,16 @@ class GameViewController: UIViewController {
         
         guard let question = currentQuestion else {return}
         
+        self.gameDelegate?.didEndGame(withResult: indexOfQuestion, allQuestionsCount: allQuestions.count, moneyWinned: question.prizeMoney)
+        
         let alertWIndow = UIAlertController(title: "Неправильно!", message: "Ваш выигрыш составил \(question.prizeMoney) рублей!", preferredStyle: .alert)
         let actionButton = UIAlertAction(title: "Ok", style: .cancel, handler: {_ in
             self.backToMainMenu()
         })
         alertWIndow.addAction(actionButton)
         present(alertWIndow, animated: true, completion: nil)
+        
+        Game.shared.addResult()
     }
     
     func backToMainMenu() {
