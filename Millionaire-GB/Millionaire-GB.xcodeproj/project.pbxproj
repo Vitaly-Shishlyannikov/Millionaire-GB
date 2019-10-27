@@ -94,9 +94,9 @@
 				583173AB2363B5450016CF8E /* ResultsCaretaker.swift */,
 				58AA6FB4236083BF0079E518 /* AppDelegate.swift */,
 				58AA6FB8236083C00079E518 /* Main.storyboard */,
-				58AA6FBB236083C20079E518 /* Assets.xcassets */,
 				58AA6FBD236083C20079E518 /* LaunchScreen.storyboard */,
 				58AA6FC0236083C20079E518 /* Info.plist */,
+				58AA6FBB236083C20079E518 /* Assets.xcassets */,
 			);
 			path = "Millionaire-GB";
 			sourceTree = "<group>";

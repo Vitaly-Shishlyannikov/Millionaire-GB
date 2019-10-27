@@ -13,7 +13,7 @@
         <!--Main Menu View Controller-->
         <scene sceneID="Egv-16-m1B">
             <objects>
-                <viewController id="IOB-AF-eLg" customClass="MainMenuViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MainMenuRID" id="IOB-AF-eLg" customClass="MainMenuViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIr-B2-lBI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,8 +103,8 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController restorationIdentifier="GameViewControllerRID" id="BYZ-38-t0r" customClass="GameViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="GameViewController" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

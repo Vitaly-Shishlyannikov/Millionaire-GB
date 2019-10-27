@@ -14,6 +14,8 @@ protocol GameViewControllerDelegate: class {
 
 class GameViewController: UIViewController {
     
+    let indexRestorationKey = "currentQuestionIndex"
+    
     @IBOutlet weak var LabelNumberOfQuestion: UILabel!
     @IBOutlet weak var LabelQuestionText: UILabel!
     @IBOutlet weak var ButtonAnswer1: UIButton!
@@ -53,7 +55,7 @@ class GameViewController: UIViewController {
     
     weak var gameDelegate: GameViewControllerDelegate?
     
-    private var indexOfQuestion = 0
+    var indexOfQuestion = 0
     private var currentQuestion: Question?
     private var allQuestions = [Question?]()
     
@@ -68,8 +70,20 @@ class GameViewController: UIViewController {
 
         showQuestion(question: currentQuestion)
     }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        coder.encode(indexOfQuestion, forKey: indexRestorationKey)
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        indexOfQuestion = coder.decodeInteger(forKey: indexRestorationKey)
+        setQuestion()
+        showQuestion(question: currentQuestion)
+    }
 
-    private func incrementIndex() {
+    private func incrementIndex() { 
         indexOfQuestion += 1
     }
     
