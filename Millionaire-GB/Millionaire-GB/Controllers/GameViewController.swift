@@ -9,12 +9,10 @@
 import UIKit
 
 protocol GameViewControllerDelegate: class {
-    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int, moneyWinned money: String)
+    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int)
 }
 
 class GameViewController: UIViewController {
-    
-    let indexRestorationKey = "currentQuestionIndex"
     
     @IBOutlet weak var LabelNumberOfQuestion: UILabel!
     @IBOutlet weak var LabelQuestionText: UILabel!
@@ -24,118 +22,113 @@ class GameViewController: UIViewController {
     @IBOutlet weak var ButtonAnswer4: UIButton!
     
     @IBAction func ButtonAnswer1(_ sender: Any) {
-        if ButtonAnswer1.titleLabel?.text == self.currentQuestion?.correctAnswer {
-            showWinMessage()
-        } else {
-            showLoseMessage()
-        }
+        answerButtonPressed(button: sender as! UIButton )
     }
     
     @IBAction func ButtonAnswer2(_ sender: Any) {
-        if ButtonAnswer2.titleLabel?.text == self.currentQuestion?.correctAnswer {
-            showWinMessage()
-        } else {
-            showLoseMessage()
-        }
+        answerButtonPressed(button: sender as! UIButton )
     }
     @IBAction func ButtonAnswer3(_ sender: Any) {
-        if ButtonAnswer3.titleLabel?.text == self.currentQuestion?.correctAnswer {
-            showWinMessage()
-        } else {
-            showLoseMessage()
-        }
+        answerButtonPressed(button: sender as! UIButton )
     }
     @IBAction func ButtonAnswer4(_ sender: Any) {
-        if ButtonAnswer4.titleLabel?.text == self.currentQuestion?.correctAnswer {
-            showWinMessage()
-        } else {
-            showLoseMessage()
-        }
+        answerButtonPressed(button: sender as! UIButton )
     }
+    
+    let indexRestorationKey = "currentQuestionIndex"
     
     weak var gameDelegate: GameViewControllerDelegate?
     
-    var indexOfQuestion = 0
-    private var currentQuestion: Question?
+    private var currentIndex = 0
+    
+    private var correctAnsersCount: Int = 0
+    
     private var allQuestions = [Question?]()
+    
+    private var orderOfQuestions = Game.shared.orderOfQuestions
+    
+    private var getQuestionStrategy: GetQuestionStrategy {
+        switch orderOfQuestions {
+        case .direct:
+            return DirectGetQuestionStrategy()
+        case .random:
+            return RandomGetQuestionStrategy()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         LabelQuestionText.numberOfLines = 0
         
-        allQuestions = DataManager.shared.getAllQuestions()
-        
-        setQuestion()
+        allQuestions = getQuestionStrategy.getQuestions()
 
-        showQuestion(question: currentQuestion)
+        showCurrentQuestion()
     }
     
     override func encodeRestorableState(with coder: NSCoder) {
-        coder.encode(indexOfQuestion, forKey: indexRestorationKey)
+        coder.encode(currentIndex, forKey: indexRestorationKey)
         super.encodeRestorableState(with: coder)
     }
     
     override func decodeRestorableState(with coder: NSCoder) {
         super.decodeRestorableState(with: coder)
-        indexOfQuestion = coder.decodeInteger(forKey: indexRestorationKey)
-        setQuestion()
-        showQuestion(question: currentQuestion)
-    }
-
-    private func incrementIndex() { 
-        indexOfQuestion += 1
+        currentIndex = coder.decodeInteger(forKey: indexRestorationKey)
+        showCurrentQuestion()
     }
     
-    private func setQuestion() {
-        currentQuestion = allQuestions[indexOfQuestion]
+    func answerButtonPressed(button: UIButton) {
+        
+        if button.titleLabel?.text == allQuestions[currentIndex]?.correctAnswer {
+            correctAnswerGiven()
+        } else {
+            incorrectAnswerGiven()
+        }
     }
     
-    private func showQuestion(question: Question?) {
+    func correctAnswerGiven() {
+        correctAnsersCount += 1
+        currentIndex += 1
+        showWinMessage()
+    }
+    
+    func incorrectAnswerGiven() {
+        Game.shared.addResult()
+        showLoseMessage()
+    }
+    
+    func showWinMessage() {
         
-        guard let question = question else {return}
+        let alertWIndow = UIAlertController(title: "Верно!", message: "Вы ответили на \(correctAnsersCount) из \(allQuestions.count) вопросов!", preferredStyle: .alert)
+        let actionButton = UIAlertAction(title: "Дальше!", style: .cancel, handler: {_ in
+            self.showCurrentQuestion()
+        })
+        alertWIndow.addAction(actionButton)
+        present(alertWIndow, animated: true, completion: nil)
+    }
+    
+    func showLoseMessage() {
         
-        LabelNumberOfQuestion.text = "Вопрос № \(question.numberOfQuestion), на кону \(question.prizeMoney) рублей"
+        self.gameDelegate?.didEndGame(withResult: correctAnsersCount, allQuestionsCount: allQuestions.count)
+        
+        let alertWIndow = UIAlertController(title: "Неправильно!", message: "Вы ответили на \(correctAnsersCount) из \(allQuestions.count) вопросов!", preferredStyle: .alert)
+        let actionButton = UIAlertAction(title: "Выход", style: .cancel, handler: {_ in
+            self.backToMainMenu()
+        })
+        alertWIndow.addAction(actionButton)
+        present(alertWIndow, animated: true, completion: nil)
+    }
+    
+    private func showCurrentQuestion() {
+        
+        guard let question = allQuestions[currentIndex] else {return}
+        
+        LabelNumberOfQuestion.text = "Вопрос № \(currentIndex + 1)"
         LabelQuestionText.text = question.question
         ButtonAnswer1.setTitle(question.answer1, for: .normal)
         ButtonAnswer2.setTitle(question.answer2, for: .normal)
         ButtonAnswer3.setTitle(question.answer3, for: .normal)
         ButtonAnswer4.setTitle(question.answer4, for: .normal)
-    }
-    
-    func showWinMessage() {
-        
-        guard let question = currentQuestion else {return}
-        
-        let alertWIndow = UIAlertController(title: "Верно!", message: "Вы выиграли \(question.prizeMoney) рублей!", preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "Ok", style: .cancel, handler: {_ in
-            self.showNextQuestion()
-        })
-        alertWIndow.addAction(actionButton)
-        present(alertWIndow, animated: true, completion: nil)
-    }
-    
-    func showNextQuestion() {
-        guard (indexOfQuestion < allQuestions.count - 1) else {return}
-        incrementIndex()
-        setQuestion()
-        showQuestion(question: currentQuestion)
-    }
-    
-    func showLoseMessage() {
-        
-        guard let question = currentQuestion else {return}
-        
-        self.gameDelegate?.didEndGame(withResult: indexOfQuestion, allQuestionsCount: allQuestions.count, moneyWinned: question.prizeMoney)
-        
-        let alertWIndow = UIAlertController(title: "Неправильно!", message: "Ваш выигрыш составил \(question.prizeMoney) рублей!", preferredStyle: .alert)
-        let actionButton = UIAlertAction(title: "Ok", style: .cancel, handler: {_ in
-            self.backToMainMenu()
-        })
-        alertWIndow.addAction(actionButton)
-        present(alertWIndow, animated: true, completion: nil)
-        
-        Game.shared.addResult()
     }
     
     func backToMainMenu() {

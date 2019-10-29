@@ -12,7 +12,6 @@ final class GameSession: Codable {
     
     var questionsCount: Int?
     var correctAnswersCount: Int?
-    var prizeMoney: String?
     
 //    let vc: GameViewController
     

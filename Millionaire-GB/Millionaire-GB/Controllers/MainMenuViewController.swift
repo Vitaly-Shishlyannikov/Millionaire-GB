@@ -14,6 +14,8 @@ final class MainMenuViewController: UIViewController {
     @IBOutlet weak var resultsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    var selectedOrderOfQuestions: OrderOfQuestions? 
+    
     @IBAction func startGameButton(_ sender: Any) {
         let session = GameSession()
         Game.shared.session = session
@@ -32,11 +34,11 @@ final class MainMenuViewController: UIViewController {
 
 extension MainMenuViewController: GameViewControllerDelegate {
     
-    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int, moneyWinned money: String) {
+    
+    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int) {
         
         let session = Game.shared.session
         session?.questionsCount = allCount
         session?.correctAnswersCount = result
-        session?.prizeMoney = money
     }
 }

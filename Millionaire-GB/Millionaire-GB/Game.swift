@@ -14,6 +14,8 @@ class Game {
     
     var session: GameSession?
     
+    var orderOfQuestions: OrderOfQuestions = .direct
+    
     private(set) var results: [Result] {
         didSet {
             resultsCaretaker.save(results: self.results)
