@@ -12,6 +12,7 @@ final class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var resultsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     @IBAction func startGameButton(_ sender: Any) {
         let session = GameSession()

@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqT-Bd-vvj">
-                                <rect key="frame" x="118" y="327" width="139" height="45"/>
+                                <rect key="frame" x="118" y="429" width="139" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Результаты">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,30 +44,49 @@
                                     <segue destination="beM-yh-Dsc" kind="show" id="1aJ-yS-nez"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngx-0E-VF9">
+                                <rect key="frame" x="187.5" y="339" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5z-3A-jcf">
+                                <rect key="frame" x="120" y="337" width="135" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Настройки">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="k3z-Oj-fec" kind="show" id="b81-Vd-hdm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.44533965380000001" green="0.95951358050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ngx-0E-VF9" firstAttribute="top" secondItem="RJ3-3n-Ci5" secondAttribute="bottom" constant="65" id="45b-zK-POa"/>
+                            <constraint firstItem="T5z-3A-jcf" firstAttribute="centerX" secondItem="EIr-B2-lBI" secondAttribute="centerX" id="4Uj-8D-V1F"/>
+                            <constraint firstItem="ngx-0E-VF9" firstAttribute="centerX" secondItem="EIr-B2-lBI" secondAttribute="centerX" id="EW2-gg-ot5"/>
+                            <constraint firstItem="T5z-3A-jcf" firstAttribute="top" secondItem="RJ3-3n-Ci5" secondAttribute="bottom" constant="63" id="P2G-jS-Okk"/>
                             <constraint firstItem="zqT-Bd-vvj" firstAttribute="centerX" secondItem="EIr-B2-lBI" secondAttribute="centerX" id="fZy-cs-lnt"/>
                             <constraint firstItem="RJ3-3n-Ci5" firstAttribute="top" secondItem="1Zn-rQ-7QX" secondAttribute="top" constant="205" id="hmA-ZI-ZE9"/>
                             <constraint firstItem="RJ3-3n-Ci5" firstAttribute="centerX" secondItem="EIr-B2-lBI" secondAttribute="centerX" id="ksZ-Ap-TU3"/>
-                            <constraint firstItem="zqT-Bd-vvj" firstAttribute="top" secondItem="RJ3-3n-Ci5" secondAttribute="bottom" constant="53" id="wes-kQ-QwK"/>
+                            <constraint firstItem="zqT-Bd-vvj" firstAttribute="top" secondItem="RJ3-3n-Ci5" secondAttribute="bottom" constant="155" id="wes-kQ-QwK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Zn-rQ-7QX"/>
                     </view>
                     <connections>
                         <outlet property="resultsButton" destination="zqT-Bd-vvj" id="H1n-dD-Tos"/>
+                        <outlet property="settingsButton" destination="T5z-3A-jcf" id="RWA-NU-ho6"/>
                         <outlet property="startGameButton" destination="RJ3-3n-Ci5" id="gh3-An-fqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99n-Op-q14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-289" y="109"/>
+            <point key="canvasLocation" x="-290" y="128"/>
         </scene>
         <!--Results Table View Controller-->
         <scene sceneID="Vhc-n4-f3t">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YQF-Td-Xh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="RCA-2E-zGY" userLabel="Exit" sceneMemberID="exit"/>
                 <tableViewController id="beM-yh-Dsc" customClass="ResultsTableViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dIz-3L-7YI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -97,8 +116,53 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQF-Td-Xh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RCA-2E-zGY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="495" y="562"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="AP6-B4-9Yz">
+            <objects>
+                <viewController id="k3z-Oj-fec" customClass="SettingsViewController" customModule="Millionaire_GB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xx-Sa-qDG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Порядок вопросов" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bez-FI-HtP">
+                                <rect key="frame" x="0.0" y="66" width="375" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oV1-zM-GmG">
+                                <rect key="frame" x="83" y="114" width="209" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="209" id="LHX-b6-f9O"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Стандарт"/>
+                                    <segment title="Вразброс"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="0.44533965380000001" green="0.95951358050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bez-FI-HtP" firstAttribute="leading" secondItem="YQ3-DD-zdM" secondAttribute="leading" id="3sj-A6-esM"/>
+                            <constraint firstItem="Bez-FI-HtP" firstAttribute="top" secondItem="YQ3-DD-zdM" secondAttribute="top" constant="46" id="LuY-T3-T0N"/>
+                            <constraint firstItem="oV1-zM-GmG" firstAttribute="centerX" secondItem="6xx-Sa-qDG" secondAttribute="centerX" id="Pgv-hZ-bcs"/>
+                            <constraint firstItem="YQ3-DD-zdM" firstAttribute="trailing" secondItem="Bez-FI-HtP" secondAttribute="trailing" id="WEp-eJ-aCQ"/>
+                            <constraint firstItem="oV1-zM-GmG" firstAttribute="top" secondItem="Bez-FI-HtP" secondAttribute="bottom" constant="26" id="ijz-Hw-LXh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YQ3-DD-zdM"/>
+                    </view>
+                    <connections>
+                        <outlet property="questionsOrderSwitch" destination="oV1-zM-GmG" id="gCg-6l-drD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5y1-B8-LRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="962"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
