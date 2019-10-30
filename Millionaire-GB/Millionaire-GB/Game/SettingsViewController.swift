@@ -13,7 +13,7 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var questionsOrderSwitch: UISegmentedControl!
     
     @IBAction func switchOrder(_ sender: Any) {
-        Game.shared.orderOfQuestions = selectedOrderOfQuestions
+        Game.shared.session?.orderOfQuestions = selectedOrderOfQuestions
     }
     
     var selectedOrderOfQuestions: OrderOfQuestions {

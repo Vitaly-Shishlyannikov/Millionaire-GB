@@ -17,8 +17,6 @@ final class MainMenuViewController: UIViewController {
     var selectedOrderOfQuestions: OrderOfQuestions? 
     
     @IBAction func startGameButton(_ sender: Any) {
-        let session = GameSession()
-        Game.shared.session = session
     }
     
     @IBAction func unwindToMainMenu(segue: UIStoryboardSegue) {
@@ -34,11 +32,14 @@ final class MainMenuViewController: UIViewController {
 
 extension MainMenuViewController: GameViewControllerDelegate {
     
-    
-    func didEndGame(withResult result: Int, allQuestionsCount allCount: Int) {
+    func infoAboutGame(currentIndex: Int, correctAnswersCount: Int, allQuestionsCount: Int){
         
         let session = Game.shared.session
-        session?.questionsCount = allCount
-        session?.correctAnswersCount = result
+        session?.questionsCount = allQuestionsCount
+        session?.correctAnswersCount = correctAnswersCount
+        session?.numberOfQuestion.value = currentIndex + 1
+    
+        let percent = Int(Double(correctAnswersCount) / Double(allQuestionsCount) * 100)
+        session?.percentOfCorrectAnswers.value = percent
     }
 }
