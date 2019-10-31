@@ -10,7 +10,14 @@ import Foundation
 
 final class DirectGetQuestionStrategy: GetQuestionStrategy {
     func getQuestions() -> [Question?] {
-        let questions = DataManager.getAllQuestions()
+        
+        var questions = DataManager.getAllQuestions()
+        
+        let addedQuestionsCaretaker = AddedQuestonsCaretaker()
+        var addedQuestions = addedQuestionsCaretaker.retrieveAddedQuestions()
+        
+        questions += addedQuestions
+        
         return questions
     }
 }

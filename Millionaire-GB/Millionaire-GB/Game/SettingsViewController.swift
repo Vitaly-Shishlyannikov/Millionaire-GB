@@ -15,6 +15,10 @@ final class SettingsViewController: UIViewController {
     @IBAction func switchOrder(_ sender: Any) {
         Game.shared.session?.orderOfQuestions = selectedOrderOfQuestions
     }
+    @IBOutlet weak var addQuestionsButton: UIButton!
+    
+    @IBAction func addQuestionButtonPressed(_ sender: Any) {
+    }
     
     var selectedOrderOfQuestions: OrderOfQuestions {
         switch self.questionsOrderSwitch.selectedSegmentIndex {
@@ -25,5 +29,15 @@ final class SettingsViewController: UIViewController {
         default:
             return .direct
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addQuestionsButton.layer.cornerRadius = 5
+        addQuestionsButton.layer.borderWidth = 3.0
+//        addQuestionsButton.layer.borderColor = UI
+        addQuestionsButton.clipsToBounds = true
+        
     }
 }

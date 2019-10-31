@@ -35,10 +35,3 @@ class Game {
         self.session = nil
     }
 }
-
-struct Result: Codable {
-    var date = Date()
-    var resultValue = Int()
-}
-
-

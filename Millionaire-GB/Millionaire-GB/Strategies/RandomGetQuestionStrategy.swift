@@ -10,7 +10,14 @@ import Foundation
 
 final class RandomGetQuestionStrategy: GetQuestionStrategy {
     func getQuestions() -> [Question?] {
-        let questions = DataManager.getAllQuestions()
+        
+        var questions = DataManager.getAllQuestions()
+        
+        let addedQuestionsCaretaker = AddedQuestonsCaretaker()
+        var addedQuestions = addedQuestionsCaretaker.retrieveAddedQuestions()
+        
+        questions += addedQuestions
+        
         let shuffledQuestions = questions.shuffled()
         return shuffledQuestions
     }
