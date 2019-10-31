@@ -19,6 +19,7 @@
 		589393CB2369CA04002EFAFC /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589393CA2369CA04002EFAFC /* QuestionTableViewCell.swift */; };
 		589393CD2369CBAE002EFAFC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589393CC2369CBAE002EFAFC /* Result.swift */; };
 		589393CF236ACE52002EFAFC /* AddedQuestionsCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589393CE236ACE52002EFAFC /* AddedQuestionsCaretaker.swift */; };
+		589393D1236AD738002EFAFC /* AddedQuestionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589393D0236AD737002EFAFC /* AddedQuestionsBuilder.swift */; };
 		589F42462362CC9000ECB908 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589F42452362CC9000ECB908 /* Game.swift */; };
 		589F42482362CE8B00ECB908 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589F42472362CE8B00ECB908 /* GameSession.swift */; };
 		58AA6FB5236083BF0079E518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA6FB4236083BF0079E518 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		589393CA2369CA04002EFAFC /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		589393CC2369CBAE002EFAFC /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		589393CE236ACE52002EFAFC /* AddedQuestionsCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedQuestionsCaretaker.swift; sourceTree = "<group>"; };
+		589393D0236AD737002EFAFC /* AddedQuestionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedQuestionsBuilder.swift; sourceTree = "<group>"; };
 		589F42452362CC9000ECB908 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		589F42472362CE8B00ECB908 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		58AA6FB1236083BF0079E518 /* Millionaire-GB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Millionaire-GB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				589393CA2369CA04002EFAFC /* QuestionTableViewCell.swift */,
+				589393D0236AD737002EFAFC /* AddedQuestionsBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				589393CF236ACE52002EFAFC /* AddedQuestionsCaretaker.swift in Sources */,
 				589F42482362CE8B00ECB908 /* GameSession.swift in Sources */,
 				589393BF23681B02002EFAFC /* RandomGetQuestionStrategy.swift in Sources */,
+				589393D1236AD738002EFAFC /* AddedQuestionsBuilder.swift in Sources */,
 				583173AC2363B5450016CF8E /* ResultsCaretaker.swift in Sources */,
 				589393B923681542002EFAFC /* GetQuestionStrategy.swift in Sources */,
 				583173B02363C0CA0016CF8E /* ResultsTableViewController.swift in Sources */,
