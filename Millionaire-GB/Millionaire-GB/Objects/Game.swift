@@ -27,19 +27,11 @@ class Game {
     }
     
     func addResult() {
-        guard let answersCount = session?.correctAnswersCount,
-              let questionsCount = session?.questionsCount else {return}
-        let resultInPercents = Double(answersCount) / Double(questionsCount) * 100
-        let result = Result(date: Date(), resultValue: Int(resultInPercents))
+        
+        guard let resultInPercents = session?.percentOfCorrectAnswers.value else {return}
+        let result = Result(date: Date(), resultValue: resultInPercents)
         self.results.append(result)
         
         self.session = nil
     }
 }
-
-struct Result: Codable {
-    var date = Date()
-    var resultValue = Int()
-}
-
-
